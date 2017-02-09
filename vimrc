@@ -6,6 +6,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'fisadev/vim-isort'
+Plug 'scrooloose/nerdtree'
 "Plug 'python-mode/python-mode'
 
 " VIM colors
