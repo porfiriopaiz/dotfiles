@@ -8,6 +8,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'fisadev/vim-isort'
 Plug 'scrooloose/nerdtree'
 "Plug 'python-mode/python-mode'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi'
 
 " VIM colors
 Plug 'gertjanreynaert/cobalt2-vim-theme'
