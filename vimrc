@@ -77,7 +77,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Enable filetype detection:
+filetype on
 filetype plugin on
+filetype indent on
 
 if &term=="xterm"
      set t_Co=8
@@ -88,27 +91,34 @@ endif
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
+
 " vim powerline configs
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 set laststatus=2
 set t_Co=256
+
 " NERDTree
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
+
 " 80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 :set colorcolumn=80
 :highlight ColorColumn ctermbg=black guibg=#592929
+
 " Enable line numbers
 set number
+
 " Highlight current line
 set cursorline
+
 " Solarized Theme
 syntax enable
 set background=dark
+
 "colorscheme solarized
 colorscheme lucario 
 
@@ -138,7 +148,7 @@ let g:vim_isort_map = '<C-i>'
 "    \ set autoindent
 "    \ set fileformat=unix
 
-"split navigations
+" Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
