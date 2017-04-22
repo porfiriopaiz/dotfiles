@@ -23,6 +23,9 @@ Plug 'albertocg/contrastneed-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'zanglg/nova.vim'
+Plug 'dracula/vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tyrannicaltoucan/vim-quantum'
 call plug#end()
 
 " BASIC SETTINGS
