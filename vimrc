@@ -7,7 +7,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'fisadev/vim-isort'
 Plug 'scrooloose/nerdtree'
-"Plug 'vim/latex/vim-latex'
+Plug 'vim-latex/vim-latex'
 "Plug 'python-mode/python-mode'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'davidhalter/jedi'
@@ -165,3 +165,6 @@ let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
 " Text width
 set textwidth=79
+
+" Fix vim-latex mapping overwriting.
+nmap <C-F> <Plug>IMAP_JumpForward
