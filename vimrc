@@ -11,6 +11,7 @@ Plug 'vim-latex/vim-latex'
 "Plug 'python-mode/python-mode'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'davidhalter/jedi'
+Plug 'bronson/vim-trailing-whitespace'
 
 " VIM colors
 Plug 'gertjanreynaert/cobalt2-vim-theme'
