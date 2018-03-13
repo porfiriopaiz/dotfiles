@@ -12,6 +12,7 @@ Plug 'vim-latex/vim-latex'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'davidhalter/jedi'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'mattn/emmet-vim'
 
 " VIM colors
 Plug 'gertjanreynaert/cobalt2-vim-theme'
