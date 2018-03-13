@@ -9,6 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+alias machine="ssh user@ip"
+
 # Snippet to use powerline by default on bash
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
