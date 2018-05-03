@@ -6,7 +6,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'fisadev/vim-isort'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'vim-latex/vim-latex'
 "Plug 'python-mode/python-mode'
 "Plug 'davidhalter/jedi-vim'
@@ -29,6 +29,7 @@ Plug 'zanglg/nova.vim'
 Plug 'dracula/vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'levex/vim-monochrome'
 call plug#end()
 
 " BASIC SETTINGS
