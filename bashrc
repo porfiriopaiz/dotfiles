@@ -9,8 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-alias xavier="ssh pionen@192.168.10.243"
-alias kronos="ssh fundacion@192.168.10.240"
+#alias xavier="ssh pionen@192.168.10.243"
+#alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
 
 # Snippet to use powerline by default on bash
@@ -28,4 +28,14 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv-3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper-3.sh
+
+# Preserve bash history in multiple terminal windows
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a;
+history -c; history -r"
