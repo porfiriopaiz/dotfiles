@@ -6,11 +6,13 @@ call plug#begin('~/.vim/plugged')
 "Plug 'python-mode/python-mode'
 "Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
+Plug 'ambv/black'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'fisadev/vim-isort'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'townk/vim-autoclose'
 Plug 'vim-latex/vim-latex'
 Plug 'vim-syntastic/syntastic'
 
@@ -175,3 +177,9 @@ set textwidth=79
 
 " Fix vim-latex mapping overwriting.
 nmap <C-F> <Plug>IMAP_JumpForward
+
+" Black
+"let g:black_fast (defaults to 0)
+let g:black_linelength = 79
+"let g:black_skip_string_normalization (defaults to 0)
+"let g:black_virtualenv (defaults to ~/.vim/black)
