@@ -12,11 +12,6 @@ fi
 #alias xavier="ssh pionen@192.168.10.243"
 #alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
-alias check-update="su -c 'dnf --refresh check-update'"
-alias clean-cache="su -c 'dnf clean dbcache expire-cache metadata' && su -c 'dnf makecache'"
-alias fget-upgrade="su -c 'dnf --downloadonly upgrade'"
-alias get_josm="mkdir ~/.cache/JOSM/jar/ && axel -n 10 https://josm.openstreetmap.de/josm-tested.jar -o ~/.cache/JOSM/jar/josm-tested.jar && axel -n 10 https://josm.openstreetmap.de/josm-latest.jar -o ~/.cache/JOSM/jar/josm-latest.jar"
-alias update-josm="rm -rf ~/.cache/JOSM/jar/josm-tested.jar && rm -rf ~/.cache/JOSM/jar/josm-latest.jar && axel -n 10 https://josm.openstreetmap.de/josm-tested.jar -o ~/.cache/JOSM/jar/josm-tested.jar && axel -n 10 https://josm.openstreetmap.de/josm-latest.jar -o ~/.cache/JOSM/jar/josm-latest.jar"
 
 # Snippet to use powerline by default on bash
 if [ -f `which powerline-daemon` ]; then
@@ -44,3 +39,13 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a;
 history -c; history -r"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# pipsi
+export PATH="$HOME/.local/bin:$PATH"

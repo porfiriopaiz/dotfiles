@@ -1,35 +1,36 @@
 " VIM-PLUG BLOCK
 " My plugins
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'vim-syntastic/syntastic'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'fisadev/vim-isort'
-"Plug 'scrooloose/nerdtree'
-Plug 'vim-latex/vim-latex'
-"Plug 'python-mode/python-mode'
-"Plug 'davidhalter/jedi-vim'
 "Plug 'davidhalter/jedi'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'python-mode/python-mode'
+"Plug 'scrooloose/nerdtree'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'fisadev/vim-isort'
+Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-latex/vim-latex'
+Plug 'vim-syntastic/syntastic'
 
 " VIM colors
-Plug 'gertjanreynaert/cobalt2-vim-theme'
-Plug 'tomasr/molokai'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'raphamorim/lucario'
-Plug 'blindFS/flattr.vim'
-Plug 'philpl/vim-adventurous'
-Plug 'albertocg/contrastneed-theme'
-Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'KeitaNakamura/neodark.vim'
-Plug 'zanglg/nova.vim'
-Plug 'dracula/vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'albertocg/contrastneed-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'blindFS/flattr.vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'dracula/vim'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 Plug 'levex/vim-monochrome'
+Plug 'morhetz/gruvbox'
+Plug 'philpl/vim-adventurous'
+Plug 'raphamorim/lucario'
+Plug 'tomasr/molokai'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'zanglg/nova.vim'
 call plug#end()
 
 " BASIC SETTINGS
@@ -130,8 +131,9 @@ set cursorline
 syntax enable
 set background=dark
 
-"colorscheme solarized
-colorscheme lucario
+colorscheme solarized
+"colorscheme lucario
+"colorscheme gruvbox
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -166,7 +168,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Python Version for YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 
 " Text width
 set textwidth=79
