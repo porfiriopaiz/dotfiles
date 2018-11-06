@@ -1,16 +1,19 @@
 " VIM-PLUG BLOCK
 " My plugins
 call plug#begin('~/.vim/plugged')
+"Plug 'bfrg/vim-cpp-modern'
 "Plug 'davidhalter/jedi'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'python-mode/python-mode'
 "Plug 'scrooloose/nerdtree'
+"Plug 'wellle/targets.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 Plug 'ambv/black'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'fisadev/vim-isort'
 Plug 'godlygeek/tabular'
 Plug 'mattn/emmet-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'plasticboy/vim-markdown'
 Plug 'townk/vim-autoclose'
 Plug 'vim-latex/vim-latex'
@@ -133,8 +136,8 @@ set cursorline
 syntax enable
 set background=dark
 
-colorscheme solarized
-"colorscheme lucario
+"colorscheme solarized
+colorscheme lucario
 "colorscheme gruvbox
 
 " Syntastic
@@ -171,6 +174,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Python Version for YCM
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf = '$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 " Text width
 set textwidth=79

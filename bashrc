@@ -9,6 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+#alias xavier="ssh pionen@192.168.10.243"
+#alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
 
 # Snippet to use powerline by default on bash
