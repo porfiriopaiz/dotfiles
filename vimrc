@@ -34,7 +34,6 @@ Plug 'philpl/vim-adventurous'
 Plug 'raphamorim/lucario'
 Plug 'tomasr/molokai'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'zanglg/nova.vim'
 call plug#end()
 
