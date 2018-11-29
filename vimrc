@@ -137,6 +137,7 @@ set background=dark
 
 "colorscheme solarized
 colorscheme lucario
+"colorscheme dracula
 "colorscheme gruvbox
 
 " Syntastic
