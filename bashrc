@@ -13,6 +13,15 @@ fi
 #alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
 
+# Keep track of what I did today :)
+alias did="vim +'normal Go' +'r!date' ~/did.md"
+
+# Keep track of what I have to do :)
+alias todo="vim +'normal Go' +'r!date' ~/todo.md"
+
+# Keep track of what I have to do :)
+alias bat="vim +'normal Go' +'r!date' ~/bat.md"
+
 # Snippet to use powerline by default on bash
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q

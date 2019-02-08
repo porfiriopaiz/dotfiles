@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $mod1 Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -117,6 +118,12 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# move to the next workspace
+bindsym $mod+Tab workspace next
+
+# move to the previous workspace
+bindsym $mod+Shift+Tab workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -168,3 +175,18 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Personal configs
+#
+# Screenshots
+# Open GNOME Screenshots in interactive mode
+bindsym --release Print exec gnome-screenshot -i
+
+# Take a screenshot of the active window
+bindsym --release $mod+Print exec gnome-screenshot -w
+
+# Take a screenshot of the selected area
+bindsym --release Shift+Print exec gnome-screenshot -a
+
+# Lock Screen
+bindsym $mod+Escape exec i3lock
