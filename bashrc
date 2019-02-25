@@ -12,6 +12,9 @@ fi
 #alias xavier="ssh pionen@192.168.10.243"
 #alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
+alias dnfcheckupdate="su -c 'dnf --refresh check-update'"
+alias dnfcleancache="su -c 'dnf clean dbcache expire-cache metadata' && su -c 'dnf makecache'"
+alias dnfgetupgrades="su -c 'dnf --downloadonly upgrade'"
 
 # Keep track of what I did today :)
 alias did="vim +'normal Go' +'r!date' ~/did.md"
@@ -19,7 +22,7 @@ alias did="vim +'normal Go' +'r!date' ~/did.md"
 # Keep track of what I have to do :)
 alias todo="vim +'normal Go' +'r!date' ~/todo.md"
 
-# Keep track of what I have to do :)
+# Keep track of my battery life :(
 alias bat="vim +'normal Go' +'r!date' ~/bat.md"
 
 # Snippet to use powerline by default on bash
