@@ -61,3 +61,8 @@ fi
 
 # pipsi
 export PATH="$HOME/.local/bin:$PATH"
+
+# TeX Live
+PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH; export INFOPATH
