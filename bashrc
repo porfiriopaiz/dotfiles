@@ -12,7 +12,7 @@ fi
 #alias xavier="ssh pionen@192.168.10.243"
 #alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
-alias dnfcheckupdate="su -c 'dnf --refresh check-update'"
+alias dnfcheckupgrade="su -c 'dnf --refresh check-upgrade'"
 alias dnfcleancache="su -c 'dnf clean dbcache expire-cache metadata' && su -c 'dnf makecache'"
 alias dnfgetupgrades="su -c 'dnf --downloadonly upgrade'"
 
