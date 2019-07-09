@@ -1,40 +1,41 @@
 " VIM-PLUG BLOCK
 " My plugins
 call plug#begin('~/.vim/plugged')
+"Plug 'ambv/black'
 "Plug 'bfrg/vim-cpp-modern'
 "Plug 'davidhalter/jedi'
 "Plug 'davidhalter/jedi-vim'
+"Plug 'fisadev/vim-isort'
+"Plug 'godlygeek/tabular'
+"Plug 'mattn/emmet-vim'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'plasticboy/vim-markdown'
 "Plug 'python-mode/python-mode'
 "Plug 'scrooloose/nerdtree'
+"Plug 'townk/vim-autoclose'
+"Plug 'vim-latex/vim-latex'
 "Plug 'wellle/targets.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
-Plug 'ambv/black'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'fisadev/vim-isort'
-Plug 'godlygeek/tabular'
-Plug 'mattn/emmet-vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'plasticboy/vim-markdown'
-Plug 'townk/vim-autoclose'
-Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
 Plug 'vim-syntastic/syntastic'
 
 " VIM colors
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'albertocg/contrastneed-theme'
+"Plug 'KeitaNakamura/neodark.vim'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'albertocg/contrastneed-theme'
+"Plug 'blindFS/flattr.vim'
+"Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'gertjanreynaert/cobalt2-vim-theme'
+"Plug 'levex/vim-monochrome'
+"Plug 'morhetz/gruvbox'
+"Plug 'philpl/vim-adventurous'
+"Plug 'tomasr/molokai'
+"Plug 'tyrannicaltoucan/vim-quantum'
+"Plug 'zanglg/nova.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'blindFS/flattr.vim'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'dracula/vim'
-Plug 'gertjanreynaert/cobalt2-vim-theme'
-Plug 'levex/vim-monochrome'
-Plug 'morhetz/gruvbox'
-Plug 'philpl/vim-adventurous'
 Plug 'raphamorim/lucario'
-Plug 'tomasr/molokai'
-Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'zanglg/nova.vim'
 call plug#end()
 
 " BASIC SETTINGS
@@ -131,26 +132,29 @@ set number
 " Highlight current line
 set cursorline
 
-" Solarized Theme
+" Solarized theme
 syntax enable
 set background=dark
+colorscheme solarized
 
+" Color Schemes
 "colorscheme solarized
-colorscheme lucario
+"colorscheme lucario
 "colorscheme dracula
 "colorscheme gruvbox
 
 " Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_auto_loc_list = 1
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Vim isort
-let g:vim_isort_map = '<C-i>'
+"let g:vim_isort_map = '<C-i>'
 
 " python-mode
 "hi pythonSelf  ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
@@ -173,17 +177,47 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Python Version for YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"let g:ycm_server_python_interpreter = '/usr/bin/python3'
+"let g:ycm_global_ycm_extra_conf = '$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"
+"let g:ycm_python_interpreter_path = ''
+"let g:ycm_python_sys_path = []
+"let g:ycm_extra_conf_vim_data = [
+"  \  'g:ycm_python_interpreter_path',
+"  \  'g:ycm_python_sys_path'
+"  \]
+"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+"let g:ycm_python_binary_path = 'python'
 
 " Text width
 set textwidth=79
 
 " Fix vim-latex mapping overwriting.
-nmap <C-F> <Plug>IMAP_JumpForward
+"nmap <C-F> <Plug>IMAP_JumpForward
 
 " Black
 "let g:black_fast (defaults to 0)
-let g:black_linelength = 79
+"let g:black_linelength = 79
 "let g:black_skip_string_normalization (defaults to 0)
 "let g:black_virtualenv (defaults to ~/.vim/black)
+
+" Undo file and dir
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
+
+" Point YCM to the Pipenv created virtualenv, if possible
+" At first, get the output of 'pipenv --venv' command.
+let pipenv_venv_path = system('pipenv --venv')
+" The above system() call produces a non zero exit code whenever
+" a proper virtual environment has not been found.
+" So, second, we only point YCM to the virtual environment when
+" the call to 'pipenv --venv' was successful.
+" Remember, that 'pipenv --venv' only points to the root directory
+" of the virtual environment, so we have to append a full path to
+" the python executable.
+if shell_error == 0
+  let venv_path = substitute(pipenv_venv_path, '\n', '', '')
+  let g:ycm_python_binary_path = venv_path . '/bin/python'
+else
+  let g:ycm_python_binary_path = 'python'
+endif
