@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'wellle/targets.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
 Plug 'vim-syntastic/syntastic'
 
