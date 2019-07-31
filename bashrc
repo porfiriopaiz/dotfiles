@@ -5,12 +5,17 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-#alias xavier="ssh pionen@192.168.10.243"
-#alias kronos="ssh fundacion@192.168.10.240"
 alias nave="tmux new -s pionen"
 alias dnfcheckupgrade="su -c 'dnf --refresh check-upgrade'"
 alias dnfcleancache="su -c 'dnf clean dbcache expire-cache metadata' && su -c 'dnf makecache'"
@@ -63,6 +68,6 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # TeX Live
-PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH; export INFOPATH
