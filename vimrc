@@ -12,13 +12,13 @@ call plug#begin('~/.vim/plugged')
 "Plug 'plasticboy/vim-markdown'
 "Plug 'python-mode/python-mode'
 "Plug 'scrooloose/nerdtree'
-"Plug 'townk/vim-autoclose'
 "Plug 'vim-latex/vim-latex'
 "Plug 'wellle/targets.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
+Plug 'townk/vim-autoclose'
 Plug 'vim-syntastic/syntastic'
 
 " VIM colors
