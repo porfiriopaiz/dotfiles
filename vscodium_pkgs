@@ -1,0 +1,17 @@
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension docsmsft.docs-article-templates
+code --install-extension docsmsft.docs-markdown
+code --install-extension docsmsft.docs-preview
+code --install-extension docsmsft.docs-yaml
+code --install-extension James-Yu.latex-workshop
+code --install-extension ms-python.python
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.csharp
+code --install-extension ms-vscode.Go
+code --install-extension ms-vscode.jscs
+code --install-extension ms-vscode.typescript-javascript-grammar
+code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+code --install-extension msjsdiag.vscode-react-native
+code --install-extension redhat.vscode-yaml
+code --install-extension techer.open-in-browser
+code --install-extension vscodevim.vim
