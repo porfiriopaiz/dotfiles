@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'davidhalter/jedi-vim'
 "Plug 'fisadev/vim-isort'
 "Plug 'godlygeek/tabular'
-"Plug 'mattn/emmet-vim'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'plasticboy/vim-markdown'
 "Plug 'python-mode/python-mode'
@@ -18,6 +17,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'lervag/vimtex'
+Plug 'mattn/emmet-vim'
 Plug 'townk/vim-autoclose'
 Plug 'vim-syntastic/syntastic'
 

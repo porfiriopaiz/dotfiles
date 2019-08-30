@@ -17,7 +17,7 @@ export PATH
 
 # User specific aliases and functions
 alias nave="tmux new -s pionen"
-alias dnfcheckupdate="su -c 'dnf --refresh check-update'"
+alias dnfcheckupgrades="su -c 'dnf --refresh check-upgrade'"
 alias dnfcleancache="su -c 'dnf clean dbcache expire-cache metadata' && su -c 'dnf makecache'"
 alias dnfgetupgrades="su -c 'dnf --downloadonly upgrade'"
 
@@ -68,6 +68,6 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # TeX Live
-PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH; export PATH
-MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2019/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2019/texmf-dist/doc/info:$INFOPATH; export INFOPATH
