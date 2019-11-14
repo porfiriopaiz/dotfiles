@@ -1,6 +1,9 @@
+set autochdir
 set autoindent
 set expandtab
 set shiftround
 set shiftwidth=2
+set smartindent
 set softtabstop=2
 set tabstop=2
+set textwidth=79
