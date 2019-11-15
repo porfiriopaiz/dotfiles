@@ -40,7 +40,7 @@ fi
 
 # Python virtualenvwrapper settings
 export PATH=/usr/bin:$PATH
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv-3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export WORKON_HOME=$HOME/.virtualenvs
