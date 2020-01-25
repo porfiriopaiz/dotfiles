@@ -223,6 +223,7 @@ if shell_error == 0
 else
   let g:ycm_python_binary_path = 'python'
 endif
+
 " JavaScript Tern config
 " Start autocompletion after 4 chars
 let g:ycm_min_num_of_chars_for_completion = 4
