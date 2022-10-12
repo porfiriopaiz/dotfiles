@@ -101,7 +101,7 @@ if filereadable("/etc/papersize")
     exe "set printoptions+=paper:" . s:papersize
   endif
 endif
-"" /usr/share/vim/vim82/defaults.vim 
+"" /usr/share/vim/vim82/defaults.vim
 " The default vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
