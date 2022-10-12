@@ -1,3 +1,8 @@
+" vimrc file based on Debian 11 defaults
+" Sources are:
+" /etc/vim/vimrc
+" /usr/share/vim/vim82/debian.vim
+" /usr/share/vim/vim82/defaults.vim
 " Use Vim defaults instead of 100% vi compatibility
 set nocompatible
 
