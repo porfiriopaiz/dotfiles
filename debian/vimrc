@@ -163,3 +163,15 @@ if has('langmap') && exists('+langremap')
   " compatible).
   set nolangremap
 endif
+
+" powerline vim status bar
+" su -c 'apt-get install powerline'
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" Enable powerline vim status bar
+set laststatus=2
+
+" Hide vim's status bottom line
+set noshowmode
