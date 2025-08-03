@@ -1,0 +1,14 @@
+# Keep track of what I did today :)
+#alias did="vi +'normal Go' +'r!date' ~/did.md"
+
+# Keep track of what I have to do :)
+alias todo="vi +'normal Go' +'r!date' ~/todo.md"
+
+# Keep track of my battery life :(
+#alias bat="vi +'normal Go' +'r!date' ~/bat.md"
+
+# Alias to run vi instead of vim.nox
+alias vi="vim -u NONE"
+
+# Alias to copy KIM's key
+alias KIMkey="xclip -r -sel clip KIMkey"
