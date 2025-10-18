@@ -6,3 +6,6 @@ source ~/.local/share/omarchy/default/bash/rc
 #
 # Make an alias for invoking commands you use constantly
 # alias p='python'
+alias vi="vim -u NONE"
+
+. "$HOME/.local/share/../bin/env"
