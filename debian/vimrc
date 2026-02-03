@@ -36,3 +36,16 @@ set hlsearch         " Highlight matches
 set incsearch        " Search as you type
 set ignorecase       " Ignore case when searching
 set smartcase        " Override 'ignorecase' if search contains capitals
+
+" --- POWERLINE SETUP ---
+" Always show the status line
+set laststatus=2
+
+" Set 256 colors for the terminal (required for Powerline colors)
+set t_Co=256
+
+" Source the Powerline Python binding
+" On Debian, the path is standard:
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup

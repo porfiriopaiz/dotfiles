@@ -12,3 +12,9 @@ alias vi="vim -u NONE"
 
 # Alias to copy KIM's key
 alias KIMkey="xclip -r -sel clip KIMkey"
+
+# Powerline Bash Prompt Integration
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+    powerline-daemon -q
+    source /usr/share/powerline/bindings/bash/powerline.sh
+fi
