@@ -118,3 +118,6 @@ fi
 
 # Add ~/.local/bin to the path
 export PATH="$HOME/.local/bin:$PATH"
+
+# Silence the VTE prompt error by defining it as an empty function
+__vte_prompt_command() { :; }
