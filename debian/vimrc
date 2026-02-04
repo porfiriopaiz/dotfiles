@@ -49,3 +49,25 @@ set t_Co=256
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+
+" --- VIM-PLUG SECTION ---
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" List your plugins here
+Plug 'preservim/nerdtree'         " File system explorer
+
+" Initialize the plugin system
+call plug#end()
+
+" Start NERDTree when Vim is started
+autocmd VimEnter * NERDTree
+
+" Move the cursor to the editing window automatically
+autocmd VimEnter * wincmd p
+
+" Close Vim if NERDTree is the only window left open
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Optional: Map Ctrl+n to toggle NERDTree manually
+map <C-n> :NERDTreeToggle<CR>
