@@ -1,64 +1,174 @@
-" ---------------------------------------------------------
-" 1. DEBIAN SYSTEM INTEGRATION
-" ---------------------------------------------------------
+" =========================================================
+" 1. DEBIAN & SYSTEM INTEGRATION
+" =========================================================
+
 " Load Debian-specific settings like filetype detection
 runtime! debian.vim
 
-" ---------------------------------------------------------
-" 2. CORE BEHAVIOR
-" ---------------------------------------------------------
-" Use Vim settings rather than Vi settings. This must be first.
-" This is often set in defaults.vim, but good to be explicit.
-set nocompatible
+" Use Vim settings rather than Vi settings. 
+" This must be first as it changes other options as side effects.
+if &compatible
+  set nocompatible
+endif
 
-" ---------------------------------------------------------
-" 3. UI AND VISUALS
-" ---------------------------------------------------------
-syntax on            " Enable syntax highlighting
-set number           " Show line numbers
-set cursorline       " Highlight the current line
-set showcmd          " Show partial commands in status line
-set wildmenu         " Visual autocomplete for command menu
+" =========================================================
+" 2. UI AND VISUALS
+" =========================================================
 
-" ---------------------------------------------------------
-" 4. TEXT EDITING & INDENTATION
-" ---------------------------------------------------------
-filetype plugin indent on    " Load plugins/indent files for specific filetypes
-set tabstop=4                " Number of visual spaces per TAB
-set softtabstop=4            " Number of spaces in tab when editing
-set expandtab                " Use spaces instead of tabs
-set shiftwidth=4             " Size of an indent
+" Enable syntax highlighting
+syntax on
 
-" ---------------------------------------------------------
-" 5. SEARCHING
-" ---------------------------------------------------------
-set hlsearch         " Highlight matches
-set incsearch        " Search as you type
-set ignorecase       " Ignore case when searching
-set smartcase        " Override 'ignorecase' if search contains capitals
+" Show line numbers
+set number
+
+" Show relative line numbers (helps with vertical jumping)
+set relativenumber
+
+" Highlight the current line
+set cursorline
+
+" Display incomplete commands in the status line
+set showcmd
+
+" Display completion matches in a status line
+set wildmenu
+
+" Show the cursor position all the time
+set ruler
+
+" Show a few lines of context around the cursor when scrolling
+set scrolloff=5
+
+" Show @@@ in the last line if it is truncated
+set display=truncate
+
+" Highlight matching brackets
+set showmatch
+
+" Enable 256 colors for the terminal
+set t_Co=256
+
+" Set timeout for key codes (makes ESC response faster)
+set ttimeout
+set ttimeoutlen=100
+
+" =========================================================
+" 3. TEXT EDITING & BEHAVIOR
+" =========================================================
+
+" Load plugins and indent files for specific filetypes
+filetype plugin indent on
+
+" Number of visual spaces per TAB
+set tabstop=4
+
+" Number of spaces in tab when editing
+set softtabstop=4
+
+" Use spaces instead of tabs
+set expandtab
+
+" Size of an indent
+set shiftwidth=4
+
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Keep 200 lines of command line history
+set history=200
+
+" Do not recognize octal numbers for Ctrl-A/Ctrl-X (prevents confusion)
+set nrformats-=octal
+
+" In insert mode, CTRL-U deletes the line but allows undoing the deletion
+inoremap <C-U> <C-G>u<C-U>
+
+" Use Q for formatting instead of Ex mode
+map Q gq
+
+" =========================================================
+" 4. SEARCHING
+" =========================================================
+
+" Highlight search matches
+set hlsearch
+
+" Search as you type
+set incsearch
+
+" Ignore case when searching
+set ignorecase
+
+" Override 'ignorecase' if search contains capitals
+set smartcase
+
+" =========================================================
+" 5. WINDOWS & BUFFERS
+" =========================================================
+
+" Split buffer below the current window
+set splitbelow
+
+" Split buffer to the right of the current window
+set splitright
+
+" Automatically save before commands like :next and :make
+set autowrite
+
+" Hide buffers when they are abandoned (instead of closing them)
+set hidden
+
+" =========================================================
+" 6. MOUSE & EXTERNAL
+" =========================================================
+
+" Enable mouse usage (nvi mode for non-xterm, a for xterm)
+if has('mouse')
+  if &term =~ 'xterm'
+    set mouse=a
+  else
+    set mouse=nvi
+  endif
+endif
+
+" =========================================================
+" 7. AUTOMATION & PLUGINS
+" =========================================================
+
+" Jump to the last known cursor position when reopening a file
+augroup vimStartup
+  au!
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+augroup END
 
 " --- POWERLINE SETUP ---
+
 " Always show the status line
 set laststatus=2
 
-" Set 256 colors for the terminal (required for Powerline colors)
-set t_Co=256
+" Hide the default -- INSERT -- mode message (Powerline handles this)
+set noshowmode
 
 " Source the Powerline Python binding
-" On Debian, the path is standard:
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 
 " --- VIM-PLUG SECTION ---
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" List your plugins here
-Plug 'preservim/nerdtree'         " File system explorer
+" File system explorer
+Plug 'preservim/nerdtree'
 
 " Initialize the plugin system
 call plug#end()
+
+" --- NERDTree AUTOMATION ---
 
 " Start NERDTree when Vim is started
 autocmd VimEnter * NERDTree
@@ -69,5 +179,5 @@ autocmd VimEnter * wincmd p
 " Close Vim if NERDTree is the only window left open
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Optional: Map Ctrl+n to toggle NERDTree manually
+" Map Ctrl+n to toggle NERDTree manually
 map <C-n> :NERDTreeToggle<CR>
